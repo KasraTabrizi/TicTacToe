@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+    <head>
+        <title>TicTacToe</title>
+        <meta charset="utf-8">
+        <style>
+            h1{
+                text-align: center;
+                font-size: 50px;
+            }
+
+            #playInfo{
+                text-align: center;
+            }
+
+            #gameArea{
+                margin: 100px auto;
+                width: 400px;
+                height: 400px;
+            }
+
+            table{
+                width: 100%;
+                border-spacing: 0px;
+            }
+
+            th, td{
+                border: 1px solid black;
+                width: 20%;
+                height: 127px;
+                font-size: 60px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>TicTacToe</h1>
+        <div id="playInfo"></div>
+        <div id="gameArea">
+            <table id="table">
+                <tr>
+                    <td id="00"></td><td id="01"></td><td id="02"></td>
+                </tr>
+                <tr>
+                    <td id="10"></td><td id="11"></td><td id="12"></td>
+                </tr>
+                <tr>
+                    <td id="20"></td><td id="21"></td><td id="22"></td>
+                </tr>
+            </table>
+
+            <button id="startGame">START</button>
+        </div>
+        <div id="credits">Made by Kasra A. Tabrizi - 2019</div>
+        <script src="script.js"></script>
+    </body>
+</html>
