@@ -4,16 +4,19 @@ var view = {
     display : function(symbol, coordinates){
         var location = document.getElementById(coordinates);
         location.innerHTML = symbol;
+        if(symbol == "O"){
+            location.style.color = "white";
+        }
     },
     //show message under the title the info about the player and the computer and
     //whether the player has won or lost.
     playInfo: function(playerSymbol, pcSymbol, gameStatus){
         var message = document.getElementById("playInfo");
         if(gameStatus === "WON"){
-            message.innerHTML = "You won!";
+            message.innerHTML = "You won! Press restart to play again.";
         }
         else if(gameStatus === "LOST"){
-            message.innerHTML = "You lost!";
+            message.innerHTML = "You lost! Press restart to play again.";
         }
         else{
           message.innerHTML = "Player: " + playerSymbol + " Computer: " + pcSymbol;
@@ -28,6 +31,18 @@ var controller = {
     //1. ask model to decide randomly which symbol the player and the pc has
     //2. send the playerSymbol, pcSymbol and status to the view object
     startGame: function(){
+        var cellStatus = document.getElementsByTagName("td");
+        for(var i = 0; i < cellStatus.length ; i++){
+            cellStatus[i].onclick = test;
+            cellStatus[i].style.color = "black";
+        }
+
+        function test(eventObj){
+            var cell = eventObj.target;
+            controller.readStatus(cell.id);
+        }
+        var buttonStatus = document.getElementById("startGame");
+        buttonStatus.innerHTML = "Restart";
         model.clearBoard();
         model.pickRandom();
         view.playInfo(model.playerSymbol, model.pcSymbol, "BUSY");
@@ -198,15 +213,7 @@ function init(){
     var buttonStatus = document.getElementById("startGame");
     buttonStatus.onclick = controller.startGame;
 
-    var cellStatus = document.getElementsByTagName("td");
-    for(var i = 0; i < cellStatus.length ; i++){
-        cellStatus[i].onclick = test;
-    }
 
-    function test(eventObj){
-        var cell = eventObj.target;
-        controller.readStatus(cell.id);
-    }
 }
 
 window.onload = init;

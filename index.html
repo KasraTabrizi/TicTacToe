@@ -3,43 +3,85 @@
     <head>
         <title>TicTacToe</title>
         <meta charset="utf-8">
+        <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
         <style>
+            body{
+                background-color: #86BBD8;
+                font-family: 'Pacifico', cursive;
+            }
             h1{
-                text-align: center;
                 font-size: 50px;
+                padding-bottom: 20px;
+                margin: 0;
+                color: white;
             }
 
             #playInfo{
                 text-align: center;
+                padding: 20px;
+                color: white;
             }
 
             #gameArea{
-                margin: 100px auto;
+                margin: 50px auto;
+                text-align: center;
                 width: 400px;
-                height: 400px;
+                height: 40%;
+                border: 1px solid #14CC60;
+                background-color: #14CC60;
+                border-radius: 10px;
+                padding: 50px;
+                box-shadow: 1px 9px 22px 0px rgba(0,0,0,0.51);
             }
 
             table{
                 width: 100%;
                 border-spacing: 0px;
+                border-collapse: collapse;
             }
 
             th, td{
-                border: 1px solid black;
+                border: 3px solid white;
                 width: 20%;
                 height: 127px;
                 font-size: 60px;
                 text-align: center;
             }
+
+            button{
+                border: 2px solid white;
+                border-radius: 5px;
+                width: 50%;
+                height: 50px;
+                display: block;
+                margin: 20px auto;
+                background-color:#F1A208;
+                font-size: 25px;
+                color: white;
+                font-family: 'Pacifico', cursive;
+                transition: 0.3s;
+                opacity: 0.8;
+            }
+
+            button:hover{
+                opacity: 1;
+                transform: scale(1.1);
+            }
+
+            button:active{
+                background-color:#A1A208;
+            }
+
             #credits{
-                text-align: center;
+                font-size: 15px;
+                color: white;
             }
         </style>
     </head>
     <body>
-        <h1>TicTacToe</h1>
-        <div id="playInfo"></div>
         <div id="gameArea">
+             <h1>TicTacToe</h1>
+            <div id="playInfo">Press Play to start the game</div>
             <table id="table">
                 <tr>
                     <td id="00"></td><td id="01"></td><td id="02"></td>
@@ -52,9 +94,9 @@
                 </tr>
             </table>
 
-            <button id="startGame">START</button>
+            <button id="startGame">Play</button>
+            <div id="credits">Made by Kasra A. Tabrizi</div>
         </div>
-        <div id="credits">Made by Kasra A. Tabrizi - 2019</div>
-        <script src="script.js"></script>
+      <script src="script.js"></script>
     </body>
 </html>
