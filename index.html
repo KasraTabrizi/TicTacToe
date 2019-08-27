@@ -6,7 +6,7 @@
         <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
         <style>
             body{
-                background-color: aliceblue;
+                background-color: #86BBD8;
                 font-family: 'Pacifico', cursive;
             }
             h1{
@@ -37,10 +37,11 @@
             table{
                 width: 100%;
                 border-spacing: 0px;
+                border-collapse: collapse;
             }
 
             th, td{
-                border: 1px solid black;
+                border: 3px solid white;
                 width: 20%;
                 height: 127px;
                 font-size: 60px;
@@ -57,6 +58,18 @@
                 background-color:#F1A208;
                 font-size: 25px;
                 color: white;
+                font-family: 'Pacifico', cursive;
+                transition: 0.3s;
+                opacity: 0.8;
+            }
+
+            button:hover{
+                opacity: 1;
+                transform: scale(1.1);
+            }
+
+            button:active{
+                background-color:#A1A208;
             }
 
             #credits{
@@ -68,7 +81,7 @@
     <body>
         <div id="gameArea">
              <h1>TicTacToe</h1>
-            <div id="playInfo">Press Start to Play</div>
+            <div id="playInfo">Press Play to start the game</div>
             <table id="table">
                 <tr>
                     <td id="00"></td><td id="01"></td><td id="02"></td>
@@ -81,7 +94,7 @@
                 </tr>
             </table>
 
-            <button id="startGame">START</button>
+            <button id="startGame">Play</button>
             <div id="credits">Made by Kasra A. Tabrizi</div>
         </div>
       <script src="script.js"></script>
