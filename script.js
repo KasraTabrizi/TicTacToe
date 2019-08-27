@@ -28,6 +28,7 @@ var controller = {
     //1. ask model to decide randomly which symbol the player and the pc has
     //2. send the playerSymbol, pcSymbol and status to the view object
     startGame: function(){
+        model.clearBoard();
         model.pickRandom();
         view.playInfo(model.playerSymbol, model.pcSymbol, "BUSY");
     },
@@ -87,18 +88,38 @@ var model = {
         }
     },
 
+    //clear board function clears the moves array and gives message to the view
+    //this is used to clear the board everytime you start a new game
+    clearBoard: function(){
+       var index = 0;
+       for(var i = 0; i < 3 ; i++){
+            for(var j = 0; j < 3 ; j++){
+                var row = document.getElementById(i.toString() + j.toString());
+                row.innerHTML = " ";
+                this.moves[index] = row.innerHTML;
+                index++;
+            }
+        }
+    },
+
     //this function is responsible for the algorithm that the PC uses to make a move
     //based on what the player has chosen
     pcDecide: function(){
         var makeDecision = true;
         while(makeDecision){
-            var random = Math.floor(Math.random() * 9);
-            if(this.moves[random] != "X" || this.moves[random] != "O"){
-                console.log(random);
-                console.log(this.moves);
-                this.moves[random] = this.pcSymbol;
-                view.display(this.pcSymbol, this.tdId[random]);
-                makeDecision = false;
+            if(this.moves.indexOf(" ") != -1){
+                var random = Math.floor(Math.random() * 9);
+                if(this.moves[random] != "X" && this.moves[random] != "O"){
+                    console.log(random);
+                    this.moves[random] = this.pcSymbol;
+                    console.log(this.moves);
+                    view.display(this.pcSymbol, this.tdId[random]);
+                    makeDecision = false;
+                }
+            }
+            else{
+               makeDecision = false;
+
             }
         }
     },
