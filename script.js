@@ -13,10 +13,10 @@ var view = {
     playInfo: function(playerSymbol, pcSymbol, gameStatus){
         var message = document.getElementById("playInfo");
         if(gameStatus === "WON"){
-            message.innerHTML = "You won! Press restart to play again.";
+            message.innerHTML = "<u>You WON!</u> <br>Press restart to play again.";
         }
         else if(gameStatus === "LOST"){
-            message.innerHTML = "You lost! Press restart to play again.";
+            message.innerHTML = "<u>You LOST!</u> <br>Press restart to play again.";
         }
         else{
           message.innerHTML = "Player: " + playerSymbol + " Computer: " + pcSymbol;
