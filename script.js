@@ -1,3 +1,14 @@
+//Things I can add, adjust, can do better
+//1. Add a timer to the pc decision to give the impression the PC is thinking
+//2. make the computer more intelligent by teaching it the rules and strategies of the game
+//3. add difficulties
+//4. Optimize code
+//    a. optimize the methodes
+//    b. optimize the objects
+//    c. use jquery
+//5. make a version with canvas instead of html table
+//6. add sound
+
 //View object is responsible for displaying the status of the game on the page
 var view = {
     //display function will display X or O on the right location
@@ -74,6 +85,7 @@ var model = {
     symbols: ["X", "O"],
     moves: [" "," "," "," "," "," "," "," "," "],
     tdId: ["00","01","02","10","11","12","20","21","22"],
+
     //randomly choose the symbol for the player and computer
     pickRandom: function(){
         var randomIndex = Math.floor(Math.random()*2);
@@ -125,9 +137,7 @@ var model = {
             if(this.moves.indexOf(" ") != -1){
                 var random = Math.floor(Math.random() * 9);
                 if(this.moves[random] != "X" && this.moves[random] != "O"){
-                    console.log(random);
                     this.moves[random] = this.pcSymbol;
-                    console.log(this.moves);
                     view.display(this.pcSymbol, this.tdId[random]);
                     makeDecision = false;
                 }
@@ -208,14 +218,9 @@ var model = {
     }
 }
 
-
 function init(){
     var buttonStatus = document.getElementById("startGame");
     buttonStatus.onclick = controller.startGame;
-
-
 }
 
 window.onload = init;
-
-
