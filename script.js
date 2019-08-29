@@ -8,6 +8,7 @@
 //    c. use jquery
 //5. make a version with canvas instead of html table
 //6. add sound
+//7. put the CSS in a seperate file (DONE)
 
 //View object is responsible for displaying the status of the game on the page
 var view = {
